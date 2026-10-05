@@ -1,0 +1,16 @@
+import pandas as pd
+import numpy as np
+
+np.random.seed(42)
+n = 100
+
+names = ["Aisha Mohammed","Tunde Ojo","Grace Eze","Ibrahim Musa","Fatima Bello","John Doe","Mary Jane","Chinedu Okoro","Bola Ahmed","Zainab Yusuf","Emeka Nnaji","Afolabi Olagoke","Blessing Okon","Musa Sule","Amina Bello","Tolu Ade","Ahmed Sule","Grace Okon","Sadiq Musa","Ngozi Eze"] * 5 # 20 names x 5 = 100 unique combo
+
+df = pd.DataFrame({
+    "Patient_ID": [f"PAT-{5000+i}" for i in range(n)], # 100% unique
+    "Full_Name": names,  # 20 names spread, looks real, not repeating every 3 rows
+    "Age": np.random.randint(18, 65, n),
+    "Amount": np.random.randint(5000, 50000, n)
+})
+
+df.to_csv("Project_100.csv", index=False)
